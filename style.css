@@ -316,3 +316,8 @@ transform:translateY(0);
 }
 
 }
+
+.facts-container{
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+}
