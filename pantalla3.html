@@ -19,9 +19,15 @@
 
 <style>
 
+body{
+overflow-y:auto;
+overflow-x:hidden;
+align-items:flex-start;
+}
+
 .facts-container{
 max-width:900px;
-margin:0 auto;
+margin:80px auto 40px auto;
 padding:40px 20px;
 display:flex;
 flex-direction:column;
@@ -39,15 +45,10 @@ margin-bottom:10px;
 }
 
 .fact-card{
-
 background:white;
-
 border-radius:20px;
-
 padding:25px;
-
 box-shadow:0 8px 24px rgba(0,0,0,0.12);
-
 transition:transform .15s, box-shadow .15s;
 }
 
@@ -74,9 +75,7 @@ font-size:1.05rem;
 
 <body>
 
-<ion-app>
-
-
+<ion-app style="height:auto;">
 
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 
@@ -86,18 +85,9 @@ font-size:1.05rem;
 <a href="pantalla3.html">Curiosidades sobre las abejas 🐝</a>
 </div>
 
-
-
-
-
 <div class="hearts-bg"></div>
 
 <div class="facts-container">
-
-
-
-
-
 
 <h1 class="facts-title">Curiosidades sobre las Abejas 🐝</h1>
 
@@ -115,7 +105,6 @@ Aproximadamente el 75% de los cultivos alimentarios del mundo dependen en parte 
 </div>
 </div>
 
-
 <div class="fact-card">
 <div class="fact-title">💃 Las abejas bailan</div>
 <div class="fact-text">
@@ -130,10 +119,14 @@ Una abeja puede volar hasta unos 24 km/h mientras busca flores. (Es por eso que 
 </div>
 </div>
 
+<div class="fact-card">
+<div class="fact-title">👑 Solo hay una reina</div>
+<div class="fact-text">
+Cada colmena tiene una única abeja reina cuya función principal es poner huevos.
+</div>
 </div>
 
-
-
+</div>
 
 <script src="script.js"></script>
 
