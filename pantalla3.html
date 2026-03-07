@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fun Facts de Abejas</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+<style>
+
+.facts-container{
+max-width:900px;
+margin:0 auto;
+padding:40px 20px;
+display:flex;
+flex-direction:column;
+gap:20px;
+z-index:1;
+position:relative;
+}
+
+.facts-title{
+text-align:center;
+color:#d63384;
+font-weight:900;
+font-size:2.4rem;
+margin-bottom:10px;
+}
+
+.fact-card{
+
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 8px 24px rgba(0,0,0,0.12);
+
+transition:transform .15s, box-shadow .15s;
+}
+
+.fact-card:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+
+.fact-title{
+font-weight:900;
+color:#e91e8c;
+font-size:1.3rem;
+margin-bottom:8px;
+}
+
+.fact-text{
+color:#444;
+font-size:1.05rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<ion-app>
+
+
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div id="side-menu" class="side-menu">
+<a href="index.html">Inicio</a>
+<a href="pantalla2.html">Me extrañas?</a>
+<a href="pantalla3.html">Curiosidades sobre las abejas 🐝</a>
+</div>
+
+
+
+
+
+<div class="hearts-bg"></div>
+
+<div class="facts-container">
+
+
+
+
+
+
+<h1 class="facts-title">Curiosidades sobre las Abejas 🐝</h1>
+
+<div class="fact-card">
+<div class="fact-title">🗺️ Tienen excelente memoria</div>
+<div class="fact-text">
+Las abejas pueden recordar la ubicación de flores y regresar a ellas incluso días después. (Será por eso que te acordas de todas las cosas?)
+</div>
+</div>
+
+<div class="fact-card">
+<div class="fact-title">🌼 Son polinizadoras esenciales</div>
+<div class="fact-text">
+Aproximadamente el 75% de los cultivos alimentarios del mundo dependen en parte de la polinización. (Mi abeja aliviando el hambre en el mundo, que buena..)
+</div>
+</div>
+
+
+<div class="fact-card">
+<div class="fact-title">💃 Las abejas bailan</div>
+<div class="fact-text">
+Las abejas usan el famoso “waggle dance” para indicar a otras dónde hay flores con néctar. (mi abeja será la unica que no quiere bailar?)
+</div>
+</div>
+
+<div class="fact-card">
+<div class="fact-title">⚡ Son rapidísimas</div>
+<div class="fact-text">
+Una abeja puede volar hasta unos 24 km/h mientras busca flores. (Es por eso que caminas tan rapido???)
+</div>
+</div>
+
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+</ion-app>
+
+</body>
+</html>
