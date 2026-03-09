@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Frases Motivacionales</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #ffe6f0, #fff);
+    overflow-x:hidden;
+}
+
+.facts-container{
+    max-width:700px;
+    margin:120px auto 40px auto;
+    padding:30px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.facts-title{
+    text-align:center;
+    color:#d63384;
+    font-weight:900;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.fact-card{
+    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    text-align:center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fact-card:hover{
+    transform: translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.fact-text{
+    font-size:1.15rem;
+    color:#444;
+    font-weight:500;
+}
+
+.motiv-btn{
+    background-color:#e91e8c;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 25px;
+    font-size:1rem;
+    cursor:pointer;
+    transition: background 0.2s;
+}
+
+.motiv-btn:hover{
+    background-color:#d63384;
+}
+
+.hamburger{
+    font-size:2rem;
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1001;
+    cursor:pointer;
+    color:#e91e8c;
+    background:white;
+    padding:8px 12px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:white;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+    padding-top:60px;
+    transition:left 0.3s;
+    z-index:1000;
+}
+
+.side-menu a{
+    text-decoration:none;
+    padding:15px 20px;
+    color:#e91e8c;
+    font-weight:700;
+    transition: background 0.2s;
+}
+
+.side-menu a:hover{
+    background:#ffe6f0;
+}
+
+.side-menu.show{
+    left:0;
+}
+
+.message-text{
+    color:#d63384;
+    font-weight:700;
+    font-size:1rem;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+<ion-app style="height:auto;">
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div id="side-menu" class="side-menu">
+<a href="index.html">Inicio</a>
+<a href="pantalla2.html">Me extrañas?</a>
+<a href="pantalla3.html">Curiosidades sobre las abejas 🐝</a>
+<a href="pantalla4.html">Frase del dia</a>
+<a href="pantalla5.html">Memoria</a>
+<a href="pantalla6.html">Aniversario de compromiso</a>
+</div>
+
+<div class="facts-container">
+
+<h1 class="facts-title">Frase del día</h1>
+
+<div class="fact-card"><br>
+    <div class="fact-text" id="motiv-text">
+        Presiona el botón para obtener tu frase diaria
+    </div><br>
+    <button class="motiv-btn" onclick="getMotivationalQuote()">Obtener frase !</button>
+    <div class="message-text" id="message-text"></div>
+</div>
+
+</div>
+
+<script>
+// Toggle menú
+function toggleMenu(){
+    const menu = document.getElementById('side-menu');
+    menu.classList.toggle('show');
+}
+
+// Cargar frase del día si ya existe
+window.onload = function(){
+    const today = new Date().toISOString().slice(0,10);
+    const lastDate = localStorage.getItem('motivDate');
+    const lastPhrase = localStorage.getItem('motivText');
+    if(lastDate === today && lastPhrase){
+        document.getElementById('motiv-text').innerText = `"${lastPhrase}"`;
+    }
+}
+
+// Función para obtener frase diaria
+async function getMotivationalQuote(){
+    const today = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+    const lastDate = localStorage.getItem('motivDate');
+    const messageEl = document.getElementById('message-text');
+
+    if(lastDate === today){
+        messageEl.innerText = "No te gustó la frase que te di?? vas a tener que esperar hasta mañana!!";
+        return;
+    }
+
+    try{
+        const res = await fetch('https://www.positive-api.online/phrase/esp');
+        const data = await res.json();
+        document.getElementById('motiv-text').innerText = `"${data.text}"`;
+        localStorage.setItem('motivDate', today); 
+        localStorage.setItem('motivText', data.text); // guardamos la frase también
+        messageEl.innerText = "";
+    }catch(err){
+        console.error(err);
+        messageEl.innerText = "Ups, no se pudo cargar la frase. Intenta de nuevo.";
+    }
+}
+</script>
+
+</ion-app>
+</body>
+</html>

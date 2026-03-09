@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjeta Decorativa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #ffe6f0, #fff);
+}
+
+/* --- Menú hamburguesa --- */
+.hamburger{
+    font-size:2rem;
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1001;
+    cursor:pointer;
+    color:#e91e8c;
+    background:white;
+    padding:8px 12px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Menú lateral --- */
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:white;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+    padding-top:60px;
+    transition:left 0.3s;
+    z-index:1000;
+}
+
+.side-menu a{
+    text-decoration:none;
+    padding:15px 20px;
+    color:#e91e8c;
+    font-weight:700;
+    transition: background 0.2s;
+}
+
+.side-menu a:hover{
+    background:#ffe6f0;
+}
+
+.side-menu.show{
+    left:0;
+}
+
+/* --- Contenedor principal --- */
+.main-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* --- Tarjeta decorativa --- */
+.card-container {
+    background: #fff0f5;
+    border-radius: 25px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    position: relative;
+    border: 3px solid #e91e8c;
+}
+
+.card-container figure {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-container figcaption {
+    margin-top: 10px;
+    color: #e91e8c;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* --- Detalles decorativos --- */
+.card-container::before,
+.card-container::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffe6f0;
+    z-index: 0;
+}
+
+.card-container::before {
+    top: -25px;
+    left: -25px;
+}
+
+.card-container::after {
+    bottom: -25px;
+    right: -25px;
+}
+</style>
+</head>
+<body>
+
+<!-- Botón hamburguesa -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<!-- Menú lateral -->
+<div id="side-menu" class="side-menu">
+    <a href="index.html">Inicio</a>
+    <a href="pantalla2.html">Me extrañas?</a>
+    <a href="pantalla3.html">Curiosidades sobre las abejas 🐝</a>
+    <a href="pantalla4.html">Frase del dia</a>
+    <a href="pantalla5.html">Juego de Memoria</a>
+    <a href="pantalla6.html">Aniversario de compromiso</a>
+</div>
+
+<!-- Contenedor principal -->
+<div class="main-container">
+    <div class="card-container">
+        <figure>
+            <img src="card.png">
+        </figure>
+    </div>
+</div>
+
+<script>
+// Toggle del menú
+function toggleMenu(){
+    document.getElementById('side-menu').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
