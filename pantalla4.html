@@ -178,29 +178,35 @@ window.onload = function(){
     }
 }
 
-// Función para obtener frase diaria
-async function getMotivationalQuote(){
-    const today = new Date().toISOString().slice(0,10); // YYYY-MM-DD
-    const lastDate = localStorage.getItem('motivDate');
+let quoteCount = 0;
+
+async function getMotivationalQuote() {
+
     const messageEl = document.getElementById('message-text');
 
-    if(lastDate === today){
-        messageEl.innerText = "No te gustó la frase que te di?? vas a tener que esperar hasta mañana!!";
-        return;
+    quoteCount++;
+
+    if (quoteCount === 2) {
+        messageEl.innerText = "¿Otra más? No te gustó la frase que te dí?";
     }
 
-    try{
+    if (quoteCount > 5) {
+        messageEl.innerText = "Bueno bueno... ¡Parece que necesitas bastante motivación! 😆";
+    }
+
+    try {
         const res = await fetch('https://www.positive-api.online/phrase/esp');
         const data = await res.json();
+
         document.getElementById('motiv-text').innerText = `"${data.text}"`;
-        localStorage.setItem('motivDate', today); 
-        localStorage.setItem('motivText', data.text); // guardamos la frase también
-        messageEl.innerText = "";
-    }catch(err){
+
+    } catch (err) {
         console.error(err);
         messageEl.innerText = "Ups, no se pudo cargar la frase. Intenta de nuevo.";
     }
 }
+
+
 </script>
 
 </ion-app>
