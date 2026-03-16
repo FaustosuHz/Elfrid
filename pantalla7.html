@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Mi Princesa 🎉</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #fff7f2, #fdfaf7);
+}
+
+/* --- Menú hamburguesa --- */
+.hamburger{
+    font-size:2rem;
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1001;
+    cursor:pointer;
+    color:#e07a7a;
+    background:white;
+    padding:8px 12px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Menú lateral --- */
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:white;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+    padding-top:60px;
+    transition:left 0.3s;
+    z-index:1000;
+}
+
+.side-menu a{
+    text-decoration:none;
+    padding:15px 20px;
+    color:#e07a7a;
+    font-weight:700;
+    transition: background 0.2s;
+}
+
+.side-menu a:hover{
+    background:#ffe6e0;
+}
+
+.side-menu.show{
+    left:0;
+}
+
+/* --- Contenedor principal --- */
+.main-container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction:column;
+    min-height:100vh;
+    padding:20px;
+    gap:20px;
+}
+
+/* --- Tarjeta decorativa --- */
+.card-container {
+    background: #fff4f0;
+    border-radius: 25px;
+    padding: 25px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    border-left: 5px solid #e07a7a;
+    position: relative;
+}
+
+/* --- Título y texto tarjeta --- */
+.card-container .fact-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #e07a7a;
+}
+
+.card-container .fact-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- Detalles decorativos --- */
+.card-container::before,
+.card-container::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffe6e0;
+    z-index: 0;
+}
+
+.card-container::before {
+    top: -20px;
+    left: -20px;
+}
+
+.card-container::after {
+    bottom: -20px;
+    right: -20px;
+}
+
+/* --- Título principal --- */
+.page-title {
+    font-size: 2.8rem;
+    text-align: center;
+    color: #e07a7a;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7a5c61;
+    margin-bottom: 20px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .card-container {
+        padding: 20px;
+    }
+    .page-title {
+        font-size: 2rem;
+    }
+    .card-container .fact-title {
+        font-size: 1.2rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Botón hamburguesa -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<!-- Menú lateral -->
+<div id="side-menu" class="side-menu">
+    <a href="index.html">Inicio</a>
+    <a href="pantalla2.html">Me extrañas?</a>
+    <a href="pantalla3.html">Curiosidades sobre las abejas 🐝</a>
+    <a href="pantalla4.html">Frase del dia</a>
+    <a href="pantalla5.html">Juego de Memoria</a>
+    <a href="pantalla6.html">Aniversario de compromiso</a>
+    <a href="pantalla7.html">Cumpleaños 🌸</a>
+</div>
+
+<!-- Contenedor principal -->
+<div class="main-container">
+
+<h1 class="page-title">🎉 Feliz Cumpleaños Mi Princesa 🎉</h1>
+<p class="page-subtitle">
+Estas son algunas de las cosas que sucedieron en el mundo durante tu vida 🌸
+</p>
+
+<!-- Tarjetas de eventos -->
+<div class="card-container">
+    <div class="fact-title">🐝 Nace la abeja más linda del mundo</div>
+    <div class="fact-text">1998 – La abeja más tierna empieza su viaje por este mundo 😘</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🌍 Google revoluciona la información</div>
+    <div class="fact-text">1998 – Se lanza Google, cambiando la forma en que buscamos cosas en el mundo.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">⚽ Francia gana la Copa Mundial</div>
+    <div class="fact-text">1998 – Francia conquista su primer Mundial de Fútbol</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🎉 ¡Bienvenida al nuevo milenio!</div>
+    <div class="fact-text">2000 – Comenzamos el siglo XXI y el tercer milenio, con muchas expectativas para el mundo.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🧬 Avances en genética</div>
+    <div class="fact-text">2003 – Publicación completa del genoma humano, abriendo nuevas posibilidades médicas y científicas.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">📱 iPhone llega al mundo</div>
+    <div class="fact-text">2007 – Apple lanza el iPhone, cambiando para siempre la tecnología móvil.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🏊 Récords Olímpicos</div>
+    <div class="fact-text">2008 – Michael Phelps y Usain Bolt rompen récords en los Juegos Olímpicos de Pekín.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">💉 Avances médicos</div>
+    <div class="fact-text">2015 – Descubrimiento de agua líquida en Marte y progresos en biotecnología y genética humana.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🦠 Pandemia COVID-19</div>
+    <div class="fact-text">2020 – El mundo enfrenta la pandemia de COVID-19, un desafío histórico para la medicina y la humanidad.</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">🐝 La abejita recibe la bendición conmigo</div>
+    <div class="fact-text">2025 – La abeja sigue creciendo y dandome felicidad ❤️</div>
+</div>
+
+<div class="card-container">
+    <div class="fact-title">La abejita hace el curso en Brasil y es capitana!!</div>
+    <div class="fact-text">2026 – Aunque ella esté lejos se esfuerza mucho</div>
+</div>
+
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById('side-menu').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
